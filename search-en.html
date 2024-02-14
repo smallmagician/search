@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ちっちゃいマジシャン-単語検索サービス</title>
+    <style>
+        .result {
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <h1>ちっちゃいマジシャン-単語検索サービス</h1>
+    <form id="searchForm">
+        <label for="searchInput">日本語を入力してください:</label>
+        <input type="text" id="searchInput" name="query" required>
+        <button type="submit">検索</button>
+    </form>
+    <div id="searchResult" class="result"></div>
+
+    <script>
+        document.getElementById('searchForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // ページのリロードを防ぐ
+            var query = document.getElementById('searchInput').value;
+            displayResult(query);
+        });
+
+        function displayResult(query) {
+            var resultDiv = document.getElementById('searchResult');
+            resultDiv.innerHTML = ''; // 前回の検索結果をクリア
+
+            // ここで検索結果を表示するロジックを実装する
+            var resultText = ""; // 検索結果のテキスト
+            // 例として、queryに基づいて結果を作成する
+            switch(query) {
+                case "猫":
+                    resultText = "<strong>English:</strong> Cat";
+                    break;
+                case "犬":
+                    resultText = "<strong>English:</strong> Dog";
+                    break;
+                // 他の検索結果もここに追加する
+                default:
+                    resultText = "該当する結果が見つかりませんでした。";
+            }
+
+            resultDiv.innerHTML = resultText;
+        }
+    </script>
+</body>
+</html>
