@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ちっちゃいマジシャン-単語追加</title>
+</head>
+<body>
+    <h1>ちっちゃいマジシャン-単語追加</h1>
+    <form id="addWordForm">
+        <label for="japaneseWord">日本語の単語:</label>
+        <input type="text" id="japaneseWord" name="japaneseWord" required><br>
+        <label for="englishWord">英語の単語:</label>
+        <input type="text" id="englishWord" name="englishWord" required><br>
+        <button type="submit">追加</button>
+    </form>
+
+    <script>
+        document.getElementById('addWordForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // ページのリロードを防ぐ
+            var japaneseWord = document.getElementById('japaneseWord').value;
+            var englishWord = document.getElementById('englishWord').value;
+
+            // ここで単語を追加するロジックを実装する
+            alert("日本語: " + japaneseWord + "\n英語: " + englishWord + "\nを追加しました。");
+            // 実際には、ここでデータベースなどに単語を保存する
+
+            // フォームをクリアする
+            document.getElementById('japaneseWord').value = '';
+            document.getElementById('englishWord').value = '';
+        });
+    </script>
+</body>
+</html>
